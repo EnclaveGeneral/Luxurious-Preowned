@@ -1,0 +1,357 @@
+/*
+  Names: Caroline Dong, Richard Zhang
+  Date: November 5, 2023
+  Section: CSE 154 AD/AE, Marina Wooden
+  Section: AG, Allison Ho/Kevin Wu
+
+  This is the styles.css that is used for all pages of our Final Project. It implements a teal and
+  blue theme and formats everything.
+*/
+
+body {
+  background-color: #F2FBF9;
+  color: #28675A;
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+  text-align: center;
+}
+
+header, .bar, #filter, body > section, #display, .car, #userpage, .comp {
+  display: flex;
+}
+
+body > h2 {
+  margin: 0px 0px 20px 0px;
+}
+
+header {
+  display: flex;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 40px 30px 40px;
+}
+
+.header-btns {
+  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 15px 30px 15px 30px;
+  border-style: solid;
+  width: 40%;
+}
+
+.close {
+  color: #000000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #04B676;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#sell-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#sell-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#carpage {
+  display: flex;
+  flex-direction: column;
+}
+
+#carpage > header {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#carpage > header, #carpage div {
+  display: flex;
+}
+
+#carpage > header > h1, #carpage > header > h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#carpage > section > img {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #17886F;
+  border-width: 10px;
+}
+
+#carpage div {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#userpage > section button {
+  margin: 15px;
+}
+
+input {
+  border-style: solid;
+  padding: 12px 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border-color: #00DDB0;
+}
+
+.bar {
+  align-items: center;
+  justify-content: center;
+}
+
+.bar input {
+  border-color: #04B676;
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
+#search-btn {
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  background: url('img/search.png');
+}
+
+#userpage {
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+h1 {
+  color: #46E8AE;
+  text-shadow: 1px 2px #04B676;
+}
+
+.h1-anim {
+  animation: tracking-in-expand 1.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#filter {
+  width: 15%;
+  margin: 10px;
+  padding: 20px;
+  background-color: #DEEFE9;
+}
+
+.filter-anim {
+  animation: bounce-in-bottom 2.5s both;
+}
+
+@keyframes bounce-in-bottom {
+  0% {
+    transform: translateY(500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateY(65px);
+    animation-timing-function: ease-in;
+  }
+
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  81% {
+    transform: translateY(28px);
+    animation-timing-function: ease-in;
+  }
+
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  95% {
+    transform: translateY(8px);
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+#filter, .car {
+  flex-direction: column;
+}
+
+#display {
+  flex-wrap: wrap;
+  width: 75%;
+}
+
+.car, .comp {
+  background-color: #E0F8EF;
+  outline-style: solid;
+  outline-width: 3px;
+  outline-color: #5CBCA7;
+  align-items: center;
+  margin: 10px;
+  border-radius: 25px;
+}
+
+.comp {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 20px;
+  flex-direction: row;
+}
+
+.car {
+  width: 45%;
+  padding: 10px 0px;
+}
+
+.car-anim {
+  animation: roll-in-blurred-left 1.35s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes roll-in-blurred-left {
+  0% {
+    transform: translateX(-1000px) rotate(-720deg);
+    filter: blur(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  color: #17886F;
+  margin-bottom: 0px;
+}
+
+button {
+  background-color: #16B08E;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button, img {
+  border-radius: 5px;
+}
+
+#search-icon {
+  width: 40px;
+}
+
+.car img {
+  width: 80%;
+  max-height: 80%;
+}
+
+#trxpage {
+  display: flex;
+  flex-direction: column;
+}
+
+#trxpage > h2 {
+  margin-bottom: 30px;
+}
+
+#trxpage > section {
+  display: flex;
+}
+
+#trxpage > section article {
+  border-width: 15px;
+  margin: 15px;
+}
+
+#trxpage img {
+  width: 50%;
+  max-height: 50%;
+}
+
+#trxpage .car {
+  width: 70%;
+}
+
+button:hover, #search-icon:hover {
+  background-color: #00DDB0;
+}
+
+h2:hover {
+  color: #00DDB0;
+}
+
+#error {
+  text-align: center;
+  font-size: larger;
+  color: red;
+}
+
+.hidden {
+  display: none !important;
+}

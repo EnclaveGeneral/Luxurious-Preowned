@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<!--
+  Names: Caroline Dong, Richard Zhang
+  Date: November 5, 2023
+  Section: CSE 154 AD, Marina Wooden
+  Section: AG, Allison Ho/Kevin Wu
+
+  This is the index.html page for our Final Project. It is a website called Luxurious Pre-Owned
+  where users can browse through and purchase cars, leave reviews, look at other users' accounts,
+  and sell their own cars.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&display=swap"
+      rel="stylesheet">
+    <script src="index.js"></script>
+    <title>LUXURIOUS</title>
+  </head>
+  <body>
+    <header>
+      <button id="account-btn" class="header-btns">Account</button>
+      <h1 class="h1-anim">LUXURIOUS PRE-OWNED</h1>
+      <div>
+        <button id="sign-in-btn" class="header-btns">Sign In</button>
+        <button id="register-btn" class="header-btns">Register</button>
+        <button id="sign-out-btn" class="header-btns hidden">Sign Out</button>
+      </div>
+      <p id="cur-user" class="hidden"></p>
+    </header>
+
+    <form id="login-form">
+      <label for="username">Username: </label>
+      <input name="username" id="username" maxlength="20" required>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" maxlength="20" required>
+      <button>Login</button>
+      <p id="login-status"></p>
+    </form>
+
+    <form id="register-form">
+      <label for="newusername">New Username: </label>
+      <input name="newusername" id="newusername" maxlength="20" pattern="[a-zA-Z0-9]+" required>
+      <label for="newpassword">New Password: </label>
+      <input type="password" name="newpassword" id="newpassword" maxlength="20"
+        pattern="[a-zA-Z0-9]+" required>
+      <label for="email">Email: </label>
+      <input name="email" id="email" required>
+      <button>Register</button>
+      <p id="register-status"></p>
+    </form>
+
+    <form id="sell-form">
+      <div>
+        <label for="sell-name">Name</label>
+        <input name="sell-name" id="sell-name" maxlength="30" required>
+        <label for="sell-price">Price ($)</label>
+        <input name="sell-price" id="sell-price" type="number" min="0" max="9999999999999999"
+          required>
+        </div>
+      <div>
+        <label for="sell-made">Date Manufactured</label>
+        <input name="sell-made" id="sell-made" type="number" min="1900" required>
+        <label for="sell-descr">Description</label>
+        <input name="sell-descr" id="sell-descr" required>
+      </div>
+      <div>
+        <label for="sell-img">Image URL</label>
+        <input name="sell-img" id="sell-img" required>
+      </div>
+      <div>
+        <label for="sell-fuel">Fuel Type:</label>
+        <select name="sell-fuel" id="sell-fuel">
+          <option value="gas" selected>Gasoline</option>
+          <option value="diesel">Diesel</option>
+          <option value="electric">Electric</option>
+        </select>
+        <label for="sell-type">Car Type:</label>
+        <select name="sell-type" id="sell-type">
+          <option value="suv" selected>SUV</option>
+          <option value="sedan">Sedan</option>
+          <option value="utility">Utility</option>
+          <option value="sports">Sports</option>
+        </select>
+      </div>
+      <button id="sell-btn">Sell Car</button>
+    </form>
+
+    <section id="search-bar" class="bar">
+      <form>
+        <label for="search">Search for vehicle:</label>
+        <input id="search" type="text" required placeholder="Enter vehicle name here">
+        <button id="search-btn">
+          <img id="search-icon" src="img/search.png" alt="Search icon">
+        </button>
+      </form>
+    </section>
+
+    <section id="popup" class="popup">
+      <div class="content">
+        <span class="close">&times;</span>
+        <h3>Error</h3>
+        <p>Server seems to be down, please contact us at cdong@uw.edu.</p>
+        <button id="modal-btn">OK</button>
+      </div>
+    </section>
+
+    <section id="userpage" class="hidden">
+      <h2></h2>
+      <section class="bar hidden">
+        <button id="toggle-anim">Toggle Animations</button>
+        <button id="toggle-compact">Toggle Compact View</button>
+        <button id="trx-btn">Transaction History</button>
+      </section>
+    </section>
+
+    <section id="trxpage" class="hidden">
+      <h2>Transaction History</h2>
+      <section></section>
+    </section>
+
+    <section>
+      <form id="filter" class="filter-anim">
+        <label for="min-cost">Minimum Cost: </label>
+        <input name="min-cost" id="min-cost" type="number" min="0">
+        <label for="max-cost">Maximum Cost: </label>
+        <input name="max-cost" id="max-cost" type="number" min="0">
+
+        <label for="fuel">Fuel Type:</label>
+        <select name="fuel" id="fuel">
+          <option value="all">All</option>
+          <option value="gas">Gasoline</option>
+          <option value="diesel">Diesel</option>
+          <option value="electric">Electric</option>
+        </select>
+
+        <label for="type">Car Type:</label>
+        <select name="type" id="type">
+          <option value="all">All</option>
+          <option value="suv">SUV</option>
+          <option value="sedan">Sedan</option>
+          <option value="utility">Utility</option>
+          <option value="sports">Sports</option>
+        </select>
+
+        <button id="filter-btn">Filter</button>
+      </form>
+
+      <section id="display"></section>
+    </section>
+
+    <section id="carpage" class="hidden">
+      <header>
+        <h1></h1>
+        <h2></h2>
+      </header>
+      <section>
+        <img src="https://i.imgur.com/OBodUk5.png" alt="Blank image">
+        <div>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+        <button>Purchase</button>
+      </section>
+    </section>
+
+    <footer>
+      <p>cdong03@uw.edu, weiyez@uw.edu. 2023</p>
+    </footer>
+  </body>
+</html>
